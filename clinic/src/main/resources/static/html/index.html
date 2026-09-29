@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CliniQ – Doctor Appointment Booking System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <div class="brand-icon">Q</div>
+                <div class="brand-title">Clini<span>Q</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li><a href="patients.html" class="nav-link">Patients</a></li>
+                <li><a href="appointments.html" class="nav-link">Appointments</a></li>
+                <li><a href="/swagger-ui.html" target="_blank" class="nav-badge-link">Swagger API ↗</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Header -->
+        <div class="page-header">
+            <div>
+                <h1 class="page-title">Clinic Operations Dashboard</h1>
+                <p class="page-subtitle">Real-time schedule monitoring, open slots overview, and daily clinic bookings.</p>
+            </div>
+            <div class="header-actions">
+                <a href="appointments.html" class="btn btn-primary">+ Book Appointment</a>
+                <a href="doctors.html" class="btn btn-outline">Publish New Slots</a>
+            </div>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon icon-teal">🩺</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="stat-doctors">-</div>
+                    <div class="stat-label">Active Doctors</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">👥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="stat-patients">-</div>
+                    <div class="stat-label">Registered Patients</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-green">⏰</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="stat-available-slots">-</div>
+                    <div class="stat-label">Available Slots</div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon icon-amber">📅</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="stat-today-appointments">-</div>
+                    <div class="stat-label">Today's Appointments</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today's Appointments Section -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span>📋</span> Today's Appointment Schedule
+                </h2>
+                <a href="appointments.html" class="btn btn-outline btn-sm">View All Appointments →</a>
+            </div>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Time Window</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="today-appointments-tbody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 2rem;">Loading today's schedule...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Available Slots Preview -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <span>✨</span> Available Open Slots Ready for Booking
+                </h2>
+                <a href="doctors.html" class="btn btn-outline btn-sm">Manage Doctor Slots →</a>
+            </div>
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Slot ID</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Time Window</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="available-slots-tbody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 2rem;">Loading open slots...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>CliniQ – Smart Clinic Management &amp; Doctor Appointment Booking System &bull; Spring Boot REST API &bull; MySQL</p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initDashboard();
+        });
+    </script>
+</body>
+</html>
